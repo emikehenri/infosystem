@@ -92,12 +92,16 @@
             <div class = "col-xl-10 bg-light">
               <nav class = "navbar navbar-expand-xl bg-secondary-subtle mt-1">
                   <div class = "container-fluid">
-                    <button type = "submit" id = "menu" class = "btn btn-sm btn-none">
+                    <button type = "submit" id = "menu" class = "btn btn-sm btn-none rounded-circle">
                     <i class="bi bi-list fs-2 text-primary"></i>
                     </button>
 
-                    <form>
-                      <input type = "search">
+                    <form class = "d-flex flex-row align-items-center">
+                      <input type = "search" class = "form-control form-control-sm me-2" aria-label = "search">
+                      <button type = "search" class = "btn btn-sm btn-outline-primary rounded-2 d-flex flex-row me-1">
+                      <i class="bi bi-search"></i>
+                      search
+                      </button>
                     </form>
                   </div>
               </nav>
