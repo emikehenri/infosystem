@@ -27,6 +27,9 @@
     --bg-200:#1f2b3e;
     --bg-300:#374357;
 }
+#sidecontent{
+    height: 100vh;
+}
 
 </style>
   </head>
@@ -35,7 +38,7 @@
       <div class = "container-fluid d-flex flex-xl-column ">
         <!-- sidebar & dashboard container -->
         <div class = "row px-0">
-            <div class = "col-xl-2 bg-dark p-0 d-flex flex-column justify-content-between" style = "height: 100vh;"> 
+            <div id = "sidecontent" class = " col-xl-2 bg-dark p-0 d-flex flex-column justify-content-between"> 
             <!-- logo section -->
               <div class = "logo-container p-4 border-bottom border-bottom-1">
                 <img src = "../../assets/cicslogo.jpg" alt = "cics logo" class = "logo rounded-circle">
@@ -90,78 +93,111 @@
             </div>
 
             <div class = "col-xl-10 bg-light">
-              <nav class = "navbar navbar-expand-xl bg-secondary-subtle mt-1">
-                  <div class = "container-fluid">
+              <nav class = "navbar navbar-expand-xl bg-light mt-1 rounded-1">
+                  <div class = "container-fluid py-1 d-flex flex-row justify-content-between align-items-center">
+                    <!-- menu icon -->
                     <button type = "submit" id = "menu" class = "btn btn-sm btn-none rounded-circle">
-                    <i class="bi bi-list fs-2 text-primary"></i>
+                    <i class="bi bi-list fs-4 text-dark"></i>
                     </button>
+                    <!-- search function -->
+                    <form class="d-flex flex-row align-items-center">
+                        <div class="input-group">
+                          <input type="search" class="form-control form-control-sm rounded-3 me-1" aria-label="search" style ="width: 20rem;">
+                            <button type="button" class="btn btn-sm btn-dark rounded-circle d-flex flex-row me-1">
+                          <i class="bi bi-search"></i>
+                             </button>
+                          </div>
+                      </form>
+                    <!-- setting, notif, dark and light -->
+                    <div class = "d-flex flex-row align-content-center">
+                      <div class = "btn-group me-2">
+                        <button type = "button" id = "light" class = "btn btn-none px-2 py-1 me-1">
+                        <i class="bi bi-brightness-high-fill  fs-5"></i>
+                        </button>
+                        <button type = "button" id = "dark" class = "btn btn-none px-2 py-1 disabled border border-0">
+                        <i class="bi bi-moon-stars-fill fs-5"></i>
+                        </button>
+                        <script>
+                          $(function(){
+                            $('#light').on('click', function(){
+                                $('#light').addClass('disabled border border-0');
+                                $('#dark').removeClass('disabled');
+                            });
 
-                    <form class = "d-flex flex-row align-items-center">
-                      <input type = "search" class = "form-control form-control-sm me-2" aria-label = "search">
-                      <button type = "search" class = "btn btn-sm btn-outline-primary rounded-2 d-flex flex-row me-1">
-                      <i class="bi bi-search"></i>
-                      search
+                            $('#dark').on('click',function(){
+                                $('#dark').addClass('disabled border border-0');
+                                $('#light').removeClass('disabled');
+                            });
+                        });
+                        </script>
+                      </div>
+                      <button class = "btn btn-none px-2 py-1 me-1">
+                      <i class="bi bi-bell-fill fs-5"></i>
                       </button>
-                    </form>
+                      <button class = "btn btn-none px-2 py-1 me-1">
+                      <i class="bi bi-gear-fill fs-5"></i>
+                      </button>
+                    </div>
                   </div>
               </nav>
-            <div id = "maindash" class = "container p-1">
-                <div class = "row">
-                  <div class = "col-xl-3 shadow-md">
-                      <div class = "card ">
-                        <div class = "card-body d-flex flex-row justify-content-between align-items-center" style = "border-left: 6px solid #fc4d47;">
+            <div id = "maindash" class = "container py-4">
+                <div class = "row d-flex justify-content-center">
+                  <div class = "col-xl-3 shadow-md me-3" style = "width: 250px;">
+                      <div class = "card rounded-1">
+                        <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #fc4d47;">
                           <div id = "seperate">
-                          <h4 class = "card-title" style= "font-family: var(--font-style);">Students</h4>
+                          <h5 class = "card-title" style= "font-family: var(--font-style);">Students</h5>
 
-                          <h4 class = "card-subtitle" style= "font-family: var(--font-style);">00</h4>
+                          <h6 class = "card-subtitle" style= "font-family: var(--font-style);">00</h6>
                               </div>
 
-                          <i class="bi bi-people-fill display-4"></i>
+                          <i class="bi bi-people-fill text-secondary display-5"></i>
                         </div>
                       </div>
                   </div>
 
-                  <div class = "col-xl-3">
-                  <div class = "card ">
-                        <div class = "card-body d-flex flex-row justify-content-between align-items-center" style = "border-left: 6px solid #fc4d47;">
+                  <div class = "col-xl-3 shadow-md me-3" style = "width: 250px;">
+                      <div class = "card rounded-1">
+                        <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #f7ea3a;">
                           <div id = "seperate">
-                          <h4 class = "card-title" style= "font-family: var(--font-style);">Students</h4>
+                          <h5 class = "card-title" style= "font-family: var(--font-style);">Teachers</h5>
 
-                          <h4 class = "card-subtitle" style= "font-family: var(--font-style);">00</h4>
+                          <h6 class = "card-subtitle" style= "font-family: var(--font-style);">00</h6>
                               </div>
 
-                          <i class="bi bi-people-fill display-4"></i>
+                          <i class="bi bi-people-fill text-secondary display-5"></i>
                         </div>
                       </div>
                   </div>
 
-                  <div class = "col-xl-3">
-                  <div class = "card ">
-                        <div class = "card-body d-flex flex-row justify-content-between align-items-center" style = "border-left: 6px solid #fc4d47;">
+                  <div class = "col-xl-3 shadow-md me-3" style = "width: 250px;">
+                      <div class = "card rounded-1">
+                        <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #3a76f7;">
                           <div id = "seperate">
-                          <h4 class = "card-title" style= "font-family: var(--font-style);">Students</h4>
+                          <h5 class = "card-title" style= "font-family: var(--font-style);">Courses</h5>
 
-                          <h4 class = "card-subtitle" style= "font-family: var(--font-style);">00</h4>
+                          <h6 class = "card-subtitle" style= "font-family: var(--font-style);">00</h6>
                               </div>
 
-                          <i class="bi bi-people-fill display-4"></i>
+                              <i class="bi bi-book-fill text-secondary display-5"></i>
                         </div>
                       </div>
                   </div>
 
-                  <div class = "col-xl-3">
-                  <div class = "card ">
-                        <div class = "card-body d-flex flex-row justify-content-between align-items-center" style = "border-left: 6px solid #fc4d47;">
+                  <div class = "col-xl-3 shadow-md me-3" style = "width: 250px;">
+                      <div class = "card rounded-1">
+                        <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #3af74a;">
                           <div id = "seperate">
-                          <h4 class = "card-title" style= "font-family: var(--font-style);">Students</h4>
+                          <h5 class = "card-title" style= "font-family: var(--font-style);">Events</h5>
 
-                          <h4 class = "card-subtitle" style= "font-family: var(--font-style);">00</h4>
+                          <h6 class = "card-subtitle" style= "font-family: var(--font-style);">00</h6>
                               </div>
 
-                          <i class="bi bi-people-fill display-4"></i>
+                              <i class="bi bi-calendar2-week-fill text-secondary display-5"></i>
                         </div>
                       </div>
                   </div>
+
                 </div>
             </div>
          </div>
