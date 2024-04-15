@@ -6,87 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel = "stylesheet" href = "../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel = "stylesheet" href = "../node_modules/sweetalert2/dist/sweetalert2.min.css" />    
 <title>Login || SIS</title>
 <style>
-  :root{
-    --font-style: 'Poppins', sans-serif;
-    --other-font: 'Roboto'. sans-serif;
-    --primary-100:#1F3A5F; /*main-primary*/
-    --primary-200:#4d648d;
-    --primary-300:#acc2ef;
-    --accent-100:#3D5A80;/* accent */
-    --accent-200:#cee8ff;
-    --text-100:#FFFFFF;
-    --text-200:#e0e0e0;
-    --bg-100:#0F1C2E; /*main background */
-    --bg-200:#1f2b3e;
-    --bg-300:#374357;
-}
-*{
+  *{
     margin: 0;
     padding: 0;
-    box-sizing: 0;
-}
-body{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items:center;
-}
-@media screen and (max-width: 768px) {
-    #title {
-      display: none;
-    }
-    #form-container {
-      border-radius: 10px;
-    }
-    #login-btn {
-      display: flex;
-      flex-direction: column;
-    }
-    #signuptext {
-      text-wrap: nowrap;
-    }
-}
+    box-sizing: border-box;
+  }
+  body{
+    width: 100%;
+    height: 100vh;
+    background-color: #f6f5f5;
+  }
+  .navbar{
+    padding: 8px 12px;
+    background-color: #2c3583;
+  }
+  .main-logo{
+    padding: 4px;
+    width: 65px;
+    height: 65px;
+  }
+  .logo-text{
+    padding: 8px 4px;
+    line-height: 1.5px;
+    letter-spacing: -1px;
+  }
+  .title-text{
+    margin: 0px;
+    padding:0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #f6f5f5;
+    font-size: 20px;
+  }
+  .title-sub-text{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: #f6f5f5;
+    font-size: 18px;
+  }
 </style>
-  </head>
-  <body style = "background-color: var(--primary-100);">
-    <!-- login form -->
-   <div class = "container d-flex align-items-center justify-content-center">
-      <div class = "row d-flex flex-row justify-content-center p-2">
-        <div id = "title" class="col-xl-6 p-5 shadow-lg rounded-start-1 d-xl-flex flex-xl-column justify-content-xl-center d-sm-none" style = "background-color: var(--bg-100);">
-          <h1 class ="display-2 px-3 text-white" style = "font-family: var(--font-style); font-weight: 600; color: var(--bg-100);">Student Information System</h1>
-          <h1 class ="fs-5 px-3 text-white" style = "font-family: var(--font-style); font-weight: 400; color: var(--bg-100);">A system project for the CICS Dept.</h1>
-        </div>
-
-        <div id = "form-container" class="col-xl-5 rounded-end-xl-1 bg-secondary-subtle shadow-lg p-3 d-xl-flex flex-xl-column align-xl-items-center justify-content-xl-center" style = "height: 550px;">
-          <h1 class = "text-center fs-1 p-3">Sign-in</h1>
-          <form action = "login.php" method = "post" class = "">
-            <div class = "form-group p-2">
-              <label for = "email" class = "form-label fs-5">Email</label>
-              <input type = "email" name= "email" class = "form-control form-control-md" placeholder = "enter Email...">
-            </div>
-            <div class = "form-group p-2">
-              <label for = "password" class = "form-label fs-5">Password</label>
-              <input type = "password" name= "password" class = "form-control form-control-md" placeholder = "enter Password...">
-            </div>
-            <div id = "login-btn" class ="form-group p-3 d-flex flex-xl-column justify-content-xl-center flex-md-column">
-              <button class = "btn btn-lg px-1 py-1 rounded-3 fs-5 text-center align-items-xl-center" style = "background-color: var(--primary-100); color:var(--text-200);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-in-right pe-1" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
-                  <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-                </svg>Login</button>
-                <span id = "signuptext" class = "fs-5 p-3" style = "font-family: var(--font-style); color: var(--bg-100); font-weight: 300;">Create an account? <a href = "signup.html">signup</a></span>
-            </div>
-          </form>
-        </div>
+</head>
+<body>
+  <navbar class = "navbar navbar-xl-expand">
+    <div class = "container-fluid d-flex flex-row justify-content-start align-items-center gap-1">
+      <img class = "main-logo rounded-circle" src = "../assets/cicslogo.jpg" alt = "cics logo" />
+      <div class = "logo-text d-flex flex-column align-items-start">
+        <h2 class = "title-text">LYCEUM OF APARRI</h2>
+        <h3 class = "title-sub-text">CICS Department</h3>
       </div>
+    </div>
+  </navbar>
+  <div class = "container-xl my-auto py-5">
+        <div class="row d-flex align-content-center justify-content-center gap-5">
+          <div class = "col-xl-6 py-2 px-3">
+            <img src = "../assets/Datareport.svg" alt = "side image">
+          </div>
+          
+          <div class = "col-xl-4 py-5 px-4 bg-light-subtle rounded-3" style = "box-shadow: 0px 5px 10px 0px lightgray;">
+            <h1 class = "login m-0 pt-3 pb-2 px-2 text-center" style = "font-family: Arial, Helvetica, sans-serif; font-size: 40px; color: #464445;">LOGIN</h1>
 
-   </div>
-    <script type="module" src="/main.js"></script>
+            <form class = "form-group" action = "../server_side/login.php" method = "post">
+              <div class = "user mb-2">
+                <label for = "Email" class = "form-label py-2 m-0">Email</label>
+                <input type = "Email" class = "form-control form-control-md form-control-black-subtle" placeholder = "enter email">
+              </div>
+
+              <div class = "pass mb-2">
+                <label for = "password" class = "form-label py-2 m-0">Password</label>
+                <input type = "password" class = "form-control" placeholder = "enter email">
+              </div>
+
+              <div class = "fpass d-flex flex-row justify-content-between py-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Remember me
+                  </label>
+                </div>
+                <div>
+                  <a href = "/" class = "link-primary active">Forgot Password</a>
+                </div>
+              </div>
+              <div class = "submit py-3 mx-auto">
+                <button class = "btn btn-lg btn-primary font-light rounded-5" style = "font-size: 18px; font-family: Arial, Helvetica, sans-serif;"type = "submit">Sign In</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  </div>
+    
+  
+  
+  <script type="module" src="/main.js"></script>
     <script src = '../node_modules/sweetalert2/dist/sweetalert2.min.js'></script>
     <script src= "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>

@@ -2,6 +2,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "chart.js": "^4.4.2",
     "jquery": "^3.7.1",
     "sweetalert2": "^11.10.7",
     "typed.js": "^2.1.0"

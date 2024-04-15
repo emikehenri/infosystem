@@ -10,8 +10,9 @@
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel = "stylesheet" href = "../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel = "stylesheet" href = "../../node_modules/sweetalert2/dist/sweetalert2.min.css" />    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel = "stylesheet" href = "dashboard.css">
-<title>Login || SIS</title>
+<title>Admin || SIS</title>
 <style>
   :root{
     --font-style: 'Poppins', sans-serif;
@@ -30,6 +31,19 @@
 #sidecontent{
     height: 100vh;
 }
+#title-text{
+    font-weight: 500;
+    color: var(--text-100);
+}
+.logo{
+    width:50px;
+    height:50px;
+}
+#crumb-dash::after {
+    content: '>'; /* Define the content for the divider */
+    margin: 0 5px; /* Adjust the spacing around the divider */
+    color: #555; /* Color of the divider */
+}
 
 </style>
   </head>
@@ -38,73 +52,101 @@
       <div class = "container-fluid d-flex flex-xl-column ">
         <!-- sidebar & dashboard container -->
         <div class = "row px-0">
-            <div id = "sidecontent" class = " col-xl-2 bg-dark p-0 d-flex flex-column justify-content-between"> 
+            <div id = "sidecontent" class = " col-xl-2 bg-dark p-0 d-flex flex-column justify-content-between overflow-y-auto"> 
             <!-- logo section -->
-              <div class = "logo-container p-4 border-bottom border-bottom-1">
-                <img src = "../../assets/cicslogo.jpg" alt = "cics logo" class = "logo rounded-circle">
-                <h1 id="title-text" class = "fs-1">CICS</h1>
+              <div class = "logo-container p-4 border-bottom border-bottom-1 d-flex align-items-center w-100">
+                <h1 id="title-text" class = "text-light display-5">SIS</h1>
               </div>
              
               <div class = "menu-container p-3 mb-5">
                 <ul class = "menu">
-                    <li class = "item">
-                    <a class = "sidebars" href = "/">
-                    <i class="bi bi-speedometer"></i>
-                    <span>Dashboard</span>
+                <li class="item py-2">
+                  <a class="sidebars text-white align-items-center" href="#">
+                    <i class="bi bi-speedometer fs-6"></i>
+                       Dashboard
                     </a>
-                    </li>
+                </li>
 
-                    <li class = "item">
-                    <a class = "sidebars" href = "/">
-                    <i class="bi bi-backpack2"></i>
-                    <span>Student</span>
-                    </a>
-                    </li>
 
-                    <li class = "item">
-                    <a class = "sidebars" href = "/">
-                    <i class="bi bi-book-half"></i>
-                    <span>Course</span>
+                <li class="item py-2" data-bs-toggle="collapse" data-bs-target="#collapse-student" aria-expanded="false" aria-controls="collapse-student">
+                    <a class="sidebars text-white" href="#">
+                        <i class="bi bi-backpack2 fs-6"></i>
+                        Student
                     </a>
-                    </li>
+                    <div class="collapse py-2" id="collapse-student">
+                        <ul class="drop-list">
+                            <li><a href="#">Add Student</a></li>
+                            <li><a href="#">Student List</a></li>
+                        </ul>
+                    </div>
+                </li>
 
-                    <li class = "item">
-                    <a class = "sidebars" href = "/">
-                    <i class="bi bi-person-badge"></i>
-                    <span>Attendance</span>
-                    </a>
-                    </li>
+            <li class="item py-2" data-bs-toggle="collapse" data-bs-target="#collapse-course" aria-expanded="false" aria-controls="collapse-course">
+                <a class="sidebars text-white" href="#">
+                    <i class="bi bi-book-half fs-6"></i>
+                    Course
+                </a>
+                <div class="collapse py-2" id="collapse-course">
+                    <ul class="drop-list">
+                        <li><a href="#">Dropdown Item 1</a></li>
+                        <li><a href="#">Dropdown Item 2</a></li>
+                        <li><a href="#">Dropdown Item 3</a></li>
+                    </ul>
+                </div>
+            </li>
 
-                    <li class = "item">
-                    <a class = "sidebars" href = "/">
-                    <i class="bi bi-mortarboard"></i>
-                    <span>Grades</span>
-                    </a>
-                    </li>
+              <li class="item py-2" data-bs-toggle="collapse" data-bs-target="#collapse-attendance" aria-expanded="false" aria-controls="collapse-attendance">
+                  <a class="sidebars text-white" href="#">
+                      <i class="bi bi-person-badge fs-6"></i>
+                      Attendance
+                  </a>
+                  <div class="collapse py-2" id="collapse-attendance">
+                      <ul class="drop-list">
+                          <li><a href="#">Dropdown Item 1</a></li>
+                          <li><a href="#">Dropdown Item 2</a></li>
+                          <li><a href="#">Dropdown Item 3</a></li>
+                      </ul>
+                  </div>
+              </li>
+
+              <li class="item py-2" data-bs-toggle="collapse" data-bs-target="#collapse-grades" aria-expanded="false" aria-controls="collapse-grades">
+                  <a class="sidebars text-white" href="#">
+                      <i class="bi bi-mortarboard fs-6"></i>
+                      Grades
+                  </a>
+                  <div class="collapse py-2" id="collapse-grades">
+                      <ul class="drop-list">
+                          <li><a href="#">Dropdown Item 1</a></li>
+                          <li><a href="#">Dropdown Item 2</a></li>
+                          <li><a href="#">Dropdown Item 3</a></li>
+                      </ul>
+                  </div>
+              </li>
+
                 </ul>
               </div>
               
               <div class = "logout-container mx-2 mt-1 p-2">
-                <button type = "submit" name = "submit" class = "btn btn-md btn-none text-white fs-4">
-                <i class="bi bi-box-arrow-in-left"></i>
+                <button id = "logout" type = "submit" name = "submit" class = "btn btn-md btn-none text-white fs-5">
+                <i class="bi bi-box-arrow-in-left fs-6"></i>
                 Logout
                 </button>
               </div>
             </div>
 
-            <div class = "col-xl-10 bg-light">
-              <nav class = "navbar navbar-expand-xl bg-light mt-1 rounded-1">
+            <div id = "dash-content" class = "col-xl-10 bg-light-subtle">
+              <nav class = "navbar navbar-expand-xl bg-light mt-1 border-bottom border-bottom-1 border-bottom-primary shadow-md">
                   <div class = "container-fluid py-1 d-flex flex-row justify-content-between align-items-center">
                     <!-- menu icon -->
-                    <button type = "submit" id = "menu" class = "btn btn-sm btn-none rounded-circle">
+                    <button type = "submit" id = "menu" class = "btn btn-sm btn-none rounded-circle ">
                     <i class="bi bi-list fs-4 text-dark"></i>
                     </button>
                     <!-- search function -->
                     <form class="d-flex flex-row align-items-center">
                         <div class="input-group">
-                          <input type="search" class="form-control form-control-sm rounded-3 me-1" aria-label="search" style ="width: 20rem;">
+                          <input type="search" class="form-control form-control-sm rounded-3 me-2" aria-label="search" placeholder = "search..."style ="width: 20rem;">
                             <button type="button" class="btn btn-sm btn-dark rounded-circle d-flex flex-row me-1">
-                          <i class="bi bi-search"></i>
+                          <i class="bi bi-search mx-auto"></i>
                              </button>
                           </div>
                       </form>
@@ -117,19 +159,7 @@
                         <button type = "button" id = "dark" class = "btn btn-none px-2 py-1 disabled border border-0">
                         <i class="bi bi-moon-stars-fill fs-5"></i>
                         </button>
-                        <script>
-                          $(function(){
-                            $('#light').on('click', function(){
-                                $('#light').addClass('disabled border border-0');
-                                $('#dark').removeClass('disabled');
-                            });
 
-                            $('#dark').on('click',function(){
-                                $('#dark').addClass('disabled border border-0');
-                                $('#light').removeClass('disabled');
-                            });
-                        });
-                        </script>
                       </div>
                       <button class = "btn btn-none px-2 py-1 me-1">
                       <i class="bi bi-bell-fill fs-5"></i>
@@ -140,69 +170,80 @@
                     </div>
                   </div>
               </nav>
+              <!-- analytics section -->
             <div id = "maindash" class = "container py-4">
+                <div class = "d-flex flex-row justify-content-between align-items-center">
+                  <h1 class = "fs-4 font-lighter ms-3 pb-4" style = "font-family: var(--font-style); color: var(--bg-100);" >Admin Dashboard</h1>
+
+                </div>
+            
                 <div class = "row d-flex justify-content-center">
-                  <div class = "col-xl-3 shadow-md me-3" style = "width: 250px;">
-                      <div class = "card rounded-1">
+                  <div class = "col-xl-3  me-3" style = "width: 250px;">
+                      <div id = "card-1"class = "card rounded-1 border-0">
                         <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #fc4d47;">
                           <div id = "seperate">
                           <h5 class = "card-title" style= "font-family: var(--font-style);">Students</h5>
 
-                          <h6 class = "card-subtitle" style= "font-family: var(--font-style);">00</h6>
+                          <h5 class = "card-subtitle" style= "font-family: var(--font-style);">00</h5>
+                          
                               </div>
 
-                          <i class="bi bi-people-fill text-secondary display-5"></i>
+                          <i class="bi bi-people-fill text-white fs-4 bg-danger px-2 py-1 rounded-circle shadow-lg"></i>
+                          </div>
                         </div>
-                      </div>
                   </div>
 
-                  <div class = "col-xl-3 shadow-md me-3" style = "width: 250px;">
-                      <div class = "card rounded-1">
+                  <div class = "col-xl-3 me-3" style = "width: 250px;">
+                      <div id = "card-1" class = "card rounded-1 border-0">
                         <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #f7ea3a;">
                           <div id = "seperate">
                           <h5 class = "card-title" style= "font-family: var(--font-style);">Teachers</h5>
 
-                          <h6 class = "card-subtitle" style= "font-family: var(--font-style);">00</h6>
+                          <h5 class = "card-subtitle" style= "font-family: var(--font-style);">00</h5>
                               </div>
 
-                          <i class="bi bi-people-fill text-secondary display-5"></i>
+                          <i class="bi bi-people-fill text-white fs-4 bg-warning px-2 py-1 rounded-circle shadow-lg"></i>
                         </div>
                       </div>
                   </div>
 
-                  <div class = "col-xl-3 shadow-md me-3" style = "width: 250px;">
-                      <div class = "card rounded-1">
+                  <div class = "col-xl-3  me-3" style = "width: 250px;">
+                      <div id = "card-1"class = "card rounded-1 border-0">
                         <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #3a76f7;">
                           <div id = "seperate">
                           <h5 class = "card-title" style= "font-family: var(--font-style);">Courses</h5>
 
-                          <h6 class = "card-subtitle" style= "font-family: var(--font-style);">00</h6>
+                          <h5 class = "card-subtitle" style= "font-family: var(--font-style);">00</h5>
                               </div>
 
-                              <i class="bi bi-book-fill text-secondary display-5"></i>
+                              <i class="bi bi-book-fill text-white fs-4 bg-primary px-2 py-1 rounded-circle shadow-lg"></i>
                         </div>
                       </div>
                   </div>
 
-                  <div class = "col-xl-3 shadow-md me-3" style = "width: 250px;">
-                      <div class = "card rounded-1">
+                  <div class = "col-xl-3 me-3" style = "width: 250px;">
+                      <div id = "card-1" class = "card rounded-1 border-0">
                         <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #3af74a;">
                           <div id = "seperate">
                           <h5 class = "card-title" style= "font-family: var(--font-style);">Events</h5>
 
-                          <h6 class = "card-subtitle" style= "font-family: var(--font-style);">00</h6>
+                          <h5 class = "card-subtitle" style= "font-family: var(--font-style);">00</h5>
                               </div>
 
-                              <i class="bi bi-calendar2-week-fill text-secondary display-5"></i>
+                              <i class="bi bi-calendar2-week-fill text-white fs-4 bg-success px-2 py-1 rounded-circle shadow-lg"></i>
                         </div>
                       </div>
                   </div>
+
+                </div>
+                <div class = "row">
 
                 </div>
             </div>
          </div>
          </div>
       </div>
+      <script type = "text/javascript" src = "./toggle-light.js"></script>
     <script src = '../../node_modules/sweetalert2/dist/sweetalert2.min.js'></script>
     <script src= "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
