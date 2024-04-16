@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel = "stylesheet" href = "../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel = "stylesheet" href = "../node_modules/sweetalert2/dist/sweetalert2.min.css" />    
 <title>Login || SIS</title>
 <style>
@@ -63,7 +64,8 @@
       </div>
     </div>
   </navbar>
-  <div class = "container-xl my-auto py-5">
+  <div class = "container-xl my-auto py-3">
+        <h1 class = "display-6 py-2 text-center font-medium" style="font-family: Arial, Helvetica, sans-serif; color: #6f6b6c;">Student Information System</h1>
         <div class="row d-flex align-content-center justify-content-center gap-5">
           <div class = "col-xl-6 py-2 px-3">
             <img src = "../assets/Datareport.svg" alt = "side image">
@@ -75,17 +77,23 @@
             <form class = "form-group" action = "../server_side/login.php" method = "post">
               <div class = "user mb-2">
                 <label for = "Email" class = "form-label py-2 m-0">Email</label>
-                <input type = "Email" class = "form-control form-control-md form-control-black-subtle" placeholder = "enter email">
+                <div class = "input-group">
+                  <span class="input-group-text bg-white" id="inputGroup-sizing-sm"><i class="bi bi-envelope-fill"></i></span>
+                  <input type = "text" class = "form-control form-control-md form-control-black-subtle" aria-describedby="inputGroup-sizing-sm"placeholder = "enter email...">
+                </div>
               </div>
 
               <div class = "pass mb-2">
                 <label for = "password" class = "form-label py-2 m-0">Password</label>
-                <input type = "password" class = "form-control" placeholder = "enter email">
+                <div class = "input-group">
+                  <span class="input-group-text bg-white" id="inputGroup-sizing-sm"><i class="bi bi-key-fill"></i></span>
+                  <input type = "text" class = "form-control form-control-md form-control-black-subtle" aria-describedby="inputGroup-sizing-sm" placeholder="enter password...">
+                </div>
               </div>
 
               <div class = "fpass d-flex flex-row justify-content-between py-2">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                   <label class="form-check-label" for="flexCheckChecked">
                     Remember me
                   </label>
@@ -94,8 +102,10 @@
                   <a href = "/" class = "link-primary active">Forgot Password</a>
                 </div>
               </div>
-              <div class = "submit py-3 mx-auto">
-                <button class = "btn btn-lg btn-primary font-light rounded-5" style = "font-size: 18px; font-family: Arial, Helvetica, sans-serif;"type = "submit">Sign In</button>
+              <div class = "submit py-2 d-flex flex-column">
+                <button class = "btn btn-lg btn-primary font-light rounded-3" style = "font-size: 18px; font-family: Arial, Helvetica, sans-serif;"type = "submit">Sign In</button>
+
+                <h5 class = "py-3 m-0 text-center" style = "font-family: 'Merriweather', serif; font-size: 14px; ">Create an Account ? <a href = "signup.html">SIGN UP</a></h5>
               </div>
             </form>
           </div>

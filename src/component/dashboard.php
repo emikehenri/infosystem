@@ -14,235 +14,131 @@
 <link rel = "stylesheet" href = "dashboard.css">
 <title>Admin || SIS</title>
 <style>
-  :root{
-    --font-style: 'Poppins', sans-serif;
-    --other-font: 'Roboto'. sans-serif;
-    --primary-100:#1F3A5F; /*main-primary*/
-    --primary-200:#4d648d;
-    --primary-300:#acc2ef;
-    --accent-100:#3D5A80;/* accent */
-    --accent-200:#cee8ff;
-    --text-100:#FFFFFF;
-    --text-200:#e0e0e0;
-    --bg-100:#0F1C2E; /*main background */
-    --bg-200:#1f2b3e;
-    --bg-300:#374357;
-}
-#sidecontent{
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    width:100%;
     height: 100vh;
+  }
+  .profile-container{
+    padding: 12px 4px;
+  }
+  .profile{
+    padding: 4px;
+    width: 64px;
+    height:64px;
+  }
+.menu-container{
+  padding: 12px 4px;
 }
-#title-text{
-    font-weight: 500;
-    color: var(--text-100);
-}
-.logo{
-    width:50px;
-    height:50px;
-}
-#crumb-dash::after {
-    content: '>'; /* Define the content for the divider */
-    margin: 0 5px; /* Adjust the spacing around the divider */
-    color: #555; /* Color of the divider */
-}
-
 </style>
   </head>
   <body>
     <!-- admin dashboard -->
-      <div class = "container-fluid d-flex flex-xl-column ">
-        <!-- sidebar & dashboard container -->
-        <div class = "row px-0">
-            <div id = "sidecontent" class = " col-xl-2 bg-dark p-0 d-flex flex-column justify-content-between overflow-y-auto"> 
-            <!-- logo section -->
-              <div class = "logo-container p-4 border-bottom border-bottom-1 d-flex align-items-center w-100">
-                <h1 id="title-text" class = "text-light display-5">SIS</h1>
-              </div>
-             
-              <div class = "menu-container p-3 mb-5">
-                <ul class = "menu">
-                <li class="item py-2">
-                  <a class="sidebars text-white align-items-center" href="#">
-                    <i class="bi bi-speedometer fs-6"></i>
-                       Dashboard
-                    </a>
-                </li>
+    <div class = "container-fluid">
 
+      <div class = "row vh-100">
+        <!-- sidebar section -->
+        <div class = "col-xl-2" style = "background-color:#3d3c3c;">
+          <div class = "profile-container d-flex flex-row align-items-center mx-auto">
+            <img class = "profile" src = "../../assets/avatar-female.png" alt = "temporary profile">
+            <div class = "d-flex flex-column m-0">
+              <h5 class = "m-0 font-medium " style = "letter-spacing: -1px;  font-size: 18px; font-family: helvetica; color: #f6f5f5;">Admin@gmail.com</h5>
+              <h6 class = "m-0 font-medium" style = "letter-spacing: -1px; font-size: 16px; font-family: helvetica; color: #f6f5f5;">Admin</h6>
+            </div>
+          </div>
 
-                <li class="item py-2" data-bs-toggle="collapse" data-bs-target="#collapse-student" aria-expanded="false" aria-controls="collapse-student">
-                    <a class="sidebars text-white" href="#">
-                        <i class="bi bi-backpack2 fs-6"></i>
-                        Student
-                    </a>
-                    <div class="collapse py-2" id="collapse-student">
-                        <ul class="drop-list">
-                            <li><a href="#">Add Student</a></li>
-                            <li><a href="#">Student List</a></li>
-                        </ul>
-                    </div>
-                </li>
-
-            <li class="item py-2" data-bs-toggle="collapse" data-bs-target="#collapse-course" aria-expanded="false" aria-controls="collapse-course">
-                <a class="sidebars text-white" href="#">
-                    <i class="bi bi-book-half fs-6"></i>
-                    Course
-                </a>
-                <div class="collapse py-2" id="collapse-course">
-                    <ul class="drop-list">
-                        <li><a href="#">Dropdown Item 1</a></li>
-                        <li><a href="#">Dropdown Item 2</a></li>
-                        <li><a href="#">Dropdown Item 3</a></li>
-                    </ul>
-                </div>
-            </li>
-
-              <li class="item py-2" data-bs-toggle="collapse" data-bs-target="#collapse-attendance" aria-expanded="false" aria-controls="collapse-attendance">
-                  <a class="sidebars text-white" href="#">
-                      <i class="bi bi-person-badge fs-6"></i>
-                      Attendance
-                  </a>
-                  <div class="collapse py-2" id="collapse-attendance">
-                      <ul class="drop-list">
-                          <li><a href="#">Dropdown Item 1</a></li>
-                          <li><a href="#">Dropdown Item 2</a></li>
-                          <li><a href="#">Dropdown Item 3</a></li>
-                      </ul>
-                  </div>
+          <div class = "menu-container">
+            <ul class = "nav flex-column align-items-start">
+              <li class = "nav-item py-2 px-1 font-medium" style = "color: #d1d0d0; font-family:Helvetica; font-size: 18px;">Menu</i>
+              <li class = "nav-item">
+                <a class = "nav-link link-secondary-subtle active py-1 px-2" href = "/"style = "color: #f6f5f5; font-family:Helvetica; font-size: 20px;">Dashboard</a>
               </li>
+              <li class = "nav-item">
+              <a class="nav-link link-secondary-subtle active py-1 px-2 font-medium" data-bs-toggle="collapse" href="#Student" role="button" aria-expanded="false" aria-controls="student"style = "color: #f6f5f5; font-family:Helvetica; font-size: 20px;">Student</a>
 
-              <li class="item py-2" data-bs-toggle="collapse" data-bs-target="#collapse-grades" aria-expanded="false" aria-controls="collapse-grades">
-                  <a class="sidebars text-white" href="#">
-                      <i class="bi bi-mortarboard fs-6"></i>
-                      Grades
-                  </a>
-                  <div class="collapse py-2" id="collapse-grades">
-                      <ul class="drop-list">
-                          <li><a href="#">Dropdown Item 1</a></li>
-                          <li><a href="#">Dropdown Item 2</a></li>
-                          <li><a href="#">Dropdown Item 3</a></li>
-                      </ul>
-                  </div>
-              </li>
-
+              <div class = "collapse" id = "Student">
+                <ul class = "list-group">
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
                 </ul>
               </div>
-              
-              <div class = "logout-container mx-2 mt-1 p-2">
-                <button id = "logout" type = "submit" name = "submit" class = "btn btn-md btn-none text-white fs-5">
-                <i class="bi bi-box-arrow-in-left fs-6"></i>
-                Logout
-                </button>
+              </li>
+
+              <li class = "nav-item">
+              <a class="nav-link link-secondary-subtle active py-1 px-2 font-medium" data-bs-toggle="collapse" href="#teacher" role="button" aria-expanded="false" aria-controls="teacher" style = "color: #f6f5f5; font-family:Helvetica; font-size: 20px;">Teacher</a>
+
+              <div class = "collapse" id = "teacher">
+                <ul class = "list-group">
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                </ul>
               </div>
-            </div>
+              </li>
 
-            <div id = "dash-content" class = "col-xl-10 bg-light-subtle">
-              <nav class = "navbar navbar-expand-xl bg-light mt-1 border-bottom border-bottom-1 border-bottom-primary shadow-md">
-                  <div class = "container-fluid py-1 d-flex flex-row justify-content-between align-items-center">
-                    <!-- menu icon -->
-                    <button type = "submit" id = "menu" class = "btn btn-sm btn-none rounded-circle ">
-                    <i class="bi bi-list fs-4 text-dark"></i>
-                    </button>
-                    <!-- search function -->
-                    <form class="d-flex flex-row align-items-center">
-                        <div class="input-group">
-                          <input type="search" class="form-control form-control-sm rounded-3 me-2" aria-label="search" placeholder = "search..."style ="width: 20rem;">
-                            <button type="button" class="btn btn-sm btn-dark rounded-circle d-flex flex-row me-1">
-                          <i class="bi bi-search mx-auto"></i>
-                             </button>
-                          </div>
-                      </form>
-                    <!-- setting, notif, dark and light -->
-                    <div class = "d-flex flex-row align-content-center">
-                      <div class = "btn-group me-2">
-                        <button type = "button" id = "light" class = "btn btn-none px-2 py-1 me-1">
-                        <i class="bi bi-brightness-high-fill  fs-5"></i>
-                        </button>
-                        <button type = "button" id = "dark" class = "btn btn-none px-2 py-1 disabled border border-0">
-                        <i class="bi bi-moon-stars-fill fs-5"></i>
-                        </button>
+              <li class = "nav-item">
+              <a class="nav-link link-secondary-subtle active py-1 px-2 font-medium" data-bs-toggle="collapse" href="#course" role="button" aria-expanded="false" aria-controls="course" style = "color: #f6f5f5; font-family:Helvetica; font-size: 20px;">Course's</a>
 
-                      </div>
-                      <button class = "btn btn-none px-2 py-1 me-1">
-                      <i class="bi bi-bell-fill fs-5"></i>
-                      </button>
-                      <button class = "btn btn-none px-2 py-1 me-1">
-                      <i class="bi bi-gear-fill fs-5"></i>
-                      </button>
-                    </div>
-                  </div>
-              </nav>
-              <!-- analytics section -->
-            <div id = "maindash" class = "container py-4">
-                <div class = "d-flex flex-row justify-content-between align-items-center">
-                  <h1 class = "fs-4 font-lighter ms-3 pb-4" style = "font-family: var(--font-style); color: var(--bg-100);" >Admin Dashboard</h1>
+              <div class = "collapse" id = "course">
+                <ul class = "list-group">
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                </ul>
+              </div>
+              </li>
 
-                </div>
-            
-                <div class = "row d-flex justify-content-center">
-                  <div class = "col-xl-3  me-3" style = "width: 250px;">
-                      <div id = "card-1"class = "card rounded-1 border-0">
-                        <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #fc4d47;">
-                          <div id = "seperate">
-                          <h5 class = "card-title" style= "font-family: var(--font-style);">Students</h5>
+              <li class = "nav-item">
+              <a class="nav-link link-secondary-subtle active py-1 px-2 font-medium" data-bs-toggle="collapse" href="#attend" role="button" aria-expanded="false" aria-controls="attend" style = "color: #f6f5f5; font-family:Helvetica; font-size: 20px;">Attendance</a>
 
-                          <h5 class = "card-subtitle" style= "font-family: var(--font-style);">00</h5>
-                          
-                              </div>
+              <div class = "collapse" id = "attend">
+                <ul class = "list-group">
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                </ul>
+              </div>
+              </li>
 
-                          <i class="bi bi-people-fill text-white fs-4 bg-danger px-2 py-1 rounded-circle shadow-lg"></i>
-                          </div>
-                        </div>
-                  </div>
+              <li class = "nav-item">
+              <a class="nav-link link-secondary-subtle active py-1 px-2 font-medium" data-bs-toggle="collapse" href="#grade" role="button" aria-expanded="false" aria-controls="grade" style = "color: #f6f5f5; font-family:Helvetica; font-size: 20px;">Grades</a>
 
-                  <div class = "col-xl-3 me-3" style = "width: 250px;">
-                      <div id = "card-1" class = "card rounded-1 border-0">
-                        <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #f7ea3a;">
-                          <div id = "seperate">
-                          <h5 class = "card-title" style= "font-family: var(--font-style);">Teachers</h5>
+              <div class = "collapse" id = "grade">
+                <ul class = "list-group">
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                </ul>
+              </div>
+              </li>
 
-                          <h5 class = "card-subtitle" style= "font-family: var(--font-style);">00</h5>
-                              </div>
+              <li class = "nav-item">
+              <a class="nav-link link-secondary-subtle active py-1 px-2 font-medium" data-bs-toggle="collapse" href="#event" role="button" aria-expanded="false" aria-controls="event" style = "color: #f6f5f5; font-family:Helvetica; font-size: 20px;">Events</a>
 
-                          <i class="bi bi-people-fill text-white fs-4 bg-warning px-2 py-1 rounded-circle shadow-lg"></i>
-                        </div>
-                      </div>
-                  </div>
-
-                  <div class = "col-xl-3  me-3" style = "width: 250px;">
-                      <div id = "card-1"class = "card rounded-1 border-0">
-                        <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #3a76f7;">
-                          <div id = "seperate">
-                          <h5 class = "card-title" style= "font-family: var(--font-style);">Courses</h5>
-
-                          <h5 class = "card-subtitle" style= "font-family: var(--font-style);">00</h5>
-                              </div>
-
-                              <i class="bi bi-book-fill text-white fs-4 bg-primary px-2 py-1 rounded-circle shadow-lg"></i>
-                        </div>
-                      </div>
-                  </div>
-
-                  <div class = "col-xl-3 me-3" style = "width: 250px;">
-                      <div id = "card-1" class = "card rounded-1 border-0">
-                        <div class = "card-body d-flex flex-row justify-content-around align-items-center" style = "border-left: 6px solid #3af74a;">
-                          <div id = "seperate">
-                          <h5 class = "card-title" style= "font-family: var(--font-style);">Events</h5>
-
-                          <h5 class = "card-subtitle" style= "font-family: var(--font-style);">00</h5>
-                              </div>
-
-                              <i class="bi bi-calendar2-week-fill text-white fs-4 bg-success px-2 py-1 rounded-circle shadow-lg"></i>
-                        </div>
-                      </div>
-                  </div>
-
-                </div>
-                <div class = "row">
-
-                </div>
-            </div>
-         </div>
-         </div>
+              <div class = "collapse" id = "event">
+                <ul class = "list-group">
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                  <li class = "list-group-item">home</li>
+                </ul>
+              </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- main content section -->
+        <div class = "col-xl-10 bg-primary">
+          <h1>hello</h1>
+        </div>
       </div>
+    </div>
+                
+
       <script type = "text/javascript" src = "./toggle-light.js"></script>
     <script src = '../../node_modules/sweetalert2/dist/sweetalert2.min.js'></script>
     <script src= "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
