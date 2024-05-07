@@ -1,65 +1,15 @@
-:root{
-    --font-style: 'Poppins', sans-serif;
-    --other-font: 'Roboto'. sans-serif;
-    --primary-100:#1F3A5F; /*main-primary*/
-    --primary-200:#4d648d;
-    --primary-300:#acc2ef;
-    --accent-100:#3D5A80;/* accent */
-    --accent-200:#cee8ff;
-    --text-100:#FFFFFF;
-    --text-200:#e0e0e0;
-    --bg-100:#0F1C2E; /*main background */
-    --bg-200:#1f2b3e;
-    --bg-300:#374357;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: 0;
-    font-family: var(--font-style);
-    cursor: pointer;
-}
-body{
-  width: 100%;
-  height: 100vh;
-}
-.logo-container{
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    justify-content: center;
-    gap: 5px;
-}
-
 .menu-container{
-    padding: 7px;
-}
-.menu{
-    padding: 3px;
-    list-style-type: none;
-    display:flex;
-    flex-direction:column;
-    justify-content: start;
-}
-.item{
-    padding: 6px;
-}
-.sidebars{
-    text-decoration: none;
-    font-family: var(--font-style);
-    font-weight: 400;
-    font-size: 1rem;
-    text-wrap: nowrap;
-    display:flex;
-    flex-direction: row;
-    gap: 10px;
-}
-.sidebars:hover{
-    color: #fccc66;
-}
-#card-1{
-    box-shadow: 6px 6px 10px 2px rgba(105,105,105,0.75);
-    -webkit-box-shadow: 6px 6px 10px 2px rgba(105,105,105,0.75);
-    -moz-box-shadow: 6px 6px 10px 2px rgba(105,105,105,0.75);
-}
+    padding: 12px 8px 0px;
+  }
+  #dash{
+    padding: 4px 8px;
+    color: #f6f5f5; 
+    font-family:Helvetica; 
+    font-size: 22px;
+    transition: all 0.3 ease
+  }
+  #dash:hover{
+    background-color: #87A2FB;
+    color: #3d3c3c;
+    padding: 4px 24px;
+  }
