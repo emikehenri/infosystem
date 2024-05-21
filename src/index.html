@@ -42,7 +42,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     color: #f6f5f5;
-    font-size: 20px;
+    font-size: 16px;
   }
   .title-sub-text{
     margin: 0px;
@@ -50,7 +50,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 300;
     color: #f6f5f5;
-    font-size: 18px;
+    font-size: 15px;
   }
 </style>
 </head>
@@ -74,12 +74,12 @@
           <div class = "col-xl-4 py-5 px-4 bg-light-subtle rounded-3" style = "box-shadow: 0px 5px 10px 0px lightgray;">
             <h1 class = "login m-0 pt-3 pb-2 px-2 text-center" style = "font-family: Arial, Helvetica, sans-serif; font-size: 40px; color: #464445;">LOGIN</h1>
 
-            <form class = "form-group" action = "../server_side/login.php" method = "post">
+            <form class = "form-group">
               <div class = "user mb-2">
                 <label for = "Email" class = "form-label py-2 m-0">Email</label>
                 <div class = "input-group">
                   <span class="input-group-text bg-white" id="inputGroup-sizing-sm"><i class="bi bi-envelope-fill"></i></span>
-                  <input type = "text" class = "form-control form-control-md form-control-black-subtle" aria-describedby="inputGroup-sizing-sm"placeholder = "enter email...">
+                  <input id = "mail" type = "text" class = "form-control form-control-md form-control-black-subtle" aria-describedby="inputGroup-sizing-sm"placeholder = "enter email...">
                 </div>
               </div>
 
@@ -87,7 +87,7 @@
                 <label for = "password" class = "form-label py-2 m-0">Password</label>
                 <div class = "input-group">
                   <span class="input-group-text bg-white" id="inputGroup-sizing-sm"><i class="bi bi-key-fill"></i></span>
-                  <input type = "text" class = "form-control form-control-md form-control-black-subtle" aria-describedby="inputGroup-sizing-sm" placeholder="enter password...">
+                  <input id = "passw" type = "text" class = "form-control form-control-md form-control-black-subtle" aria-describedby="inputGroup-sizing-sm" placeholder="enter password...">
                 </div>
               </div>
 
@@ -103,7 +103,7 @@
                 </div>
               </div>
               <div class = "submit py-2 d-flex flex-column">
-                <button class = "btn btn-lg btn-primary font-light rounded-3" style = "font-size: 18px; font-family: Arial, Helvetica, sans-serif;"type = "submit">Sign In</button>
+                <button id = "signin" class = "btn btn-lg btn-primary font-light rounded-3" style = "font-size: 18px; font-family: Arial, Helvetica, sans-serif;"type = "submit">Sign In</button>
 
                 <h5 class = "py-3 m-0 text-center" style = "font-family: 'Merriweather', serif; font-size: 14px; ">Create an Account ? <a href = "signup.html">SIGN UP</a></h5>
               </div>
@@ -114,7 +114,7 @@
     
   
   
-  <script type="module" src="/main.js"></script>
+  <script type="text/javascript" src="./validation.js"></script>
     <script src = '../node_modules/sweetalert2/dist/sweetalert2.min.js'></script>
     <script src= "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>

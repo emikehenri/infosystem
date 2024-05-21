@@ -1,31 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-    function adminComp() {
-        let admin = document.getElementById('studentsection');
-        let studdash = document.querySelector('#dashcomponent');
-
-        admin.addEventListener('click', adminnav);
-
-        async function adminnav(e) {
-            e.preventDefault();
-            let com = await getDashboard();
-            // Clear previous content in admindash before appending new content
-            studdash.innerHTML = '';
-            studdash.appendChild(com);
-        }
-
-        async function getDashboard() {
-            try {
-                let response = await fetch('./studentsec.html');
-                let data = await response.text();
-                // Create a new div element to hold the fetched content
-                let contentDiv = document.createElement('div');
-                contentDiv.innerHTML = data;
-                return contentDiv;
-            } catch (error) {
-                console.log('Oops, error fetching the data:', error);
-            }
-        }
+    let navlinks = [
+    {
+        nav_id: 'studentsection',
+        nav_content: './admincomp/studentsec.html'
+    },
+    {
+        nav_id: 'teachersection',
+        nav_content: './admincomp/teachersec.html'
     }
+];
 
-    adminComp();
-});
+    function Nav(){
+        let studMain = document.querySelector('#dashcomponent');
+
+       
+
+        navlinks.forEach(links => {
+            let studboard = document.getElementById(links.nav_id);
+            studboard.addEventListener('click', navigator);
+            async function navigator(e){
+                e.preventDefault();
+                await GetDashboard(links.nav_content)
+
+            }
+        })
+
+       async function GetDashboard(url){
+        try{
+            let response = await fetch(url)
+            if(!response.ok){
+                throw new Error(`${response.text}`)
+            }
+
+            let data = await response.text()
+            studMain.innerHTML = data;
+
+        }catch (error){
+            console.error('failed to connect');
+        }
+
+       }
+    }
+    Nav();
+
+
+})
